@@ -1,13 +1,33 @@
+body{
+    font-family: Helvetica, sans-serif, Arial;
+}
+
 .display_speech{
     padding: 1rem;
 }
 
-.upload_speech{
+.upload_speech_big{
     margin: auto;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 300px;
+    width: 80vw;
+    max-width: 300px;
+    height: 30vw;
+    max-height: 300px;
+    padding: 10vw;
+    background: #7365549e;
+    color: whitesmoke;
+}
+
+.upload_speech_small{
+    position: absolute;
+    top: 5;
+    right: 5;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 139, 139, 0.733);
 }

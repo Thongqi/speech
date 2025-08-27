@@ -9,7 +9,11 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="upload_speech">
+ 
+    <div class="upload_speech_small">
+    </div>
+
+    <div class="upload_speech_big">
         <p>Upload your speech</p>
         <form action="" method="post" enctype="multipart/form-data" accept=".pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
             <input type="file" name="speech" id="speech" />
@@ -21,5 +25,17 @@
 
      </div>
 
+    <aside>
+        <!-- adjust font size -->
+        <div class="font_size">
+            <p>Font Size</p>
+            <input type="range" name="font_size_controller" id="font_size_controller" max="60" min="12">
+         </div>
+         <!-- adjust line spacing -->
+        <div class="line_height">
+            <p>Line Spacing</p>
+            <input type="range" name="line_height_controller" id="line_height_controller" max="0" min="5">
+         </div>
+    </aside>
 </body>
 </html>
