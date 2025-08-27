@@ -1,5 +1,8 @@
-const form = document.querySelector('#speech')
-form.addEventListener('change', uploadSpeech)
+document.addEventListener("DOMContentLoaded", (event) => { 
+    const speech = document.querySelector('#speech')
+    speech.addEventListener('change', uploadSpeech)
+})
+
 
 function uploadSpeech(event){
     event.preventDefault();
