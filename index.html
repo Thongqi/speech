@@ -1,1 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.10.0/mammoth.browser.min.js"></script>
+    <script src="main.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="upload_speech">
+        <p>Upload your speech</p>
+        <form action="/uploadspeech" method="post" enctype="multipart/form-data" accept=".pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+            <input type="file" name="speech" id="speech">
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+    <!-- or copy paste -->
+     <div class="display_speech">
 
+     </div>
+
+</body>
+</html>
