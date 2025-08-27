@@ -1,5 +1,5 @@
-const form = document.querySelector('form')
-form.addEventListener('submit', uploadSpeech)
+const form = document.querySelector('.speech')
+form.addEventListener('change', uploadSpeech)
 
 function uploadSpeech(event){
     event.preventDefault();
@@ -17,4 +17,4 @@ function uploadSpeech(event){
     };
 
     reader.readAsArrayBuffer(event.target.files[0]);
-});
+};
