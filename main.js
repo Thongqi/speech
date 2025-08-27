@@ -1,4 +1,4 @@
-const form = document.querySelector('.speech')
+const form = document.querySelector('#speech')
 form.addEventListener('change', uploadSpeech)
 
 function uploadSpeech(event){
@@ -9,7 +9,7 @@ function uploadSpeech(event){
     reader.onload = function (event) {
         mammoth.convertToHtml({ arrayBuffer: event.target.result })
             .then(function (result) {
-                document.querySelector('#display_speech').innerHTML = result.value;
+                document.querySelector('.display_speech').innerHTML = result.value;
             })
             .catch(function (err) {
                 console.log(err);
