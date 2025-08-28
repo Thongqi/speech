@@ -19,8 +19,12 @@
             <input type="file" name="speech" id="speech" />
             <button type="submit">Upload</button>
         </form>
+
+        <!-- add in close button -->
     </div>
+
     <!-- or copy paste -->
+     
      <div class="display_speech">
 
      </div>
@@ -29,12 +33,12 @@
         <!-- adjust font size -->
         <div class="font_size">
             <p>Font Size</p>
-            <input type="range" name="font_size_controller" id="font_size_controller" max="60" min="12">
+            <input type="range" name="font_size_controller" id="font_size_controller" oninput="setFontSize(this.value)" max="60" min="12">
          </div>
          <!-- adjust line spacing -->
         <div class="line_height">
             <p>Line Spacing</p>
-            <input type="range" name="line_height_controller" id="line_height_controller" max="0" min="5">
+            <input type="range" name="line_height_controller" id="line_height_controller" oninput="setLineHeigth(this.value)" max="5" min="0">
          </div>
     </aside>
 </body>

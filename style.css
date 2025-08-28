@@ -23,11 +23,11 @@ body{
 }
 
 .upload_speech_small{
-    position: absolute;
-    top: 5;
-    right: 5;
+    position: fixed;
+    top: 3vw;
+    right: 3vw;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     background-color: rgba(0, 139, 139, 0.733);
 }
