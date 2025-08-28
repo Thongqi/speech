@@ -1,19 +1,29 @@
-body{
-    font-family: Helvetica, sans-serif, Arial;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, sans-serif, Arial;
+}
+
+input, button, textarea, select {
+  font: inherit;
 }
 
 .close_btn{
     position: absolute;
     top: 10px;
     right:10px;
+    pad: 1px;
+    border-radius: 50%;
+    transition: background-color 100ms ease-in-out;
 }
 
 .close_btn:hover{
     background-color: rgba(250, 250, 250, 0.315);
-    border-radius: 50%;
+    
 }
 
 .display_speech{
@@ -45,6 +55,7 @@ body{
     background-color: rgba(0, 139, 139, 0.733);
     display: flex;
     margin: auto;
+    transition: all 100ms ease-in-out;
 }
 
 .upload_speech_small:hover{
@@ -65,6 +76,15 @@ body{
     display: flex;
     flex-direction: column;
     row-gap: 20px;
+    transition: scale 0.5s ease-in-out;
+}
+
+.setting_bar .setting_icon{
+    transition: all 100ms ease-in-out;
+}
+
+.setting_bar .setting_icon:hover,.setting_icon:focus,.setting_icon:active{
+    scale: 1.05;
 }
 
 .settings{
@@ -79,12 +99,23 @@ body{
     height: 30vw;
     max-height: 200px;
     padding: 15px;
-    background-color: rgba(255, 127, 80, 0.705);
+    background-color: rgb(217 153 129 / 77%);
     margin: auto;
+}
+
+.settings div{
+    padding: 0;
 }
 
 .textbox{
     width: 80vw;
     min-width: 300px;
     min-height: 300px;
+    margin: auto;
+    margin-top: 5vw;
+}
+
+.textbox textarea{
+    width: inherit;
+    padding: 10px;
 }
