@@ -41,7 +41,7 @@ input, button, textarea, select {
     max-width: 300px;
     height: 30vw;
     max-height: 250px;
-    padding: 15px;
+    padding: 30px 20px 20px 20px;
     background: #7365549e;
     color: whitesmoke;
     flex-direction: column;
@@ -50,8 +50,8 @@ input, button, textarea, select {
 
 .upload_speech_small{
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background-color: rgba(0, 139, 139, 0.733);
     display: flex;
     margin: auto;

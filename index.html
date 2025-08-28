@@ -17,7 +17,7 @@
             </svg>
         </div>
 
-        <svg width="30px" height="30px" class="setting_icon" onclick="toggleSettings()" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="35px" height="35px" class="setting_icon" onclick="toggleSettings()" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18.48 18.5368H21M4.68 12L3 12.044M4.68 12C4.68 13.3255 5.75451 14.4 7.08 14.4C8.40548 14.4 9.48 13.3255 9.48 12C9.48 10.6745 8.40548 9.6 7.08 9.6C5.75451 9.6 4.68 10.6745 4.68 12ZM10.169 12.0441H21M12.801 5.55124L3 5.55124M21 5.55124H18.48M3 18.5368H12.801M17.88 18.6C17.88 19.9255 16.8055 21 15.48 21C14.1545 21 13.08 19.9255 13.08 18.6C13.08 17.2745 14.1545 16.2 15.48 16.2C16.8055 16.2 17.88 17.2745 17.88 18.6ZM17.88 5.4C17.88 6.72548 16.8055 7.8 15.48 7.8C14.1545 7.8 13.08 6.72548 13.08 5.4C13.08 4.07452 14.1545 3 15.48 3C16.8055 3 17.88 4.07452 17.88 5.4Z" stroke="#363853" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
 
@@ -27,10 +27,11 @@
         <p>Upload your speech</p>
         <form action="" method="post" enctype="multipart/form-data" accept=".pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
             <input type="file" name="speech" id="speech" />
-            <button type="submit">Upload</button>
+            <!-- <button type="submit">Upload</button> -->
         </form>
+        <!-- TODO -->
+        <!-- add in a button for copy&paste -->
 
-        <!-- add in close button -->
          <svg class="close_btn" width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="toggleBigUpload()">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#0F1729"/>
         </svg>
@@ -39,7 +40,9 @@
     <!-- or copy paste -->
      <div class="textbox">
         <textarea name="paste_speech" id="paste_speech" rows="10" placeholder="Type your speech here..."></textarea>
-     </div>
+        <!-- TODO -->
+        <!-- add in submit and display as html & enable edit -->
+    </div>
      
      <div class="display_speech">
 
@@ -48,15 +51,14 @@
 
 
     <div class="settings">
-        <!-- adjust font size -->
         <div class="font_size">
             <p>Font Size</p>
             <input type="range" name="font_size_controller" id="font_size_controller" style="width: 250px;" oninput="setFontSize(this.value)" max="60" min="12">
          </div>
-         <!-- adjust line spacing -->
+
         <div class="line_height">
             <p>Line Spacing</p>
-            <input type="range" name="line_height_controller" id="line_height_controller" style="width: 200px;" oninput="setLineHeigth(this.value)" max="5" min="0">
+            <input type="range" name="line_height_controller" id="line_height_controller" style="width: 200px;" oninput="setLineHeight(this.value)" max="5" min="0">
          </div>
 
         <svg class="close_btn" width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="toggleSettings()">

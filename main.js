@@ -26,7 +26,7 @@ function uploadSpeech(event){
             return image.read('base64').then((imageBuffer) => {
                 return {
                 src: 'data:' + image.contentType + ';base64,' + imageBuffer,
-                style: 'max-width: 80vw',
+                style: 'max-width: 90vw',
                 };
             });
         }),
@@ -47,10 +47,19 @@ function uploadSpeech(event){
 
     toggleBigUpload();
     reader.readAsArrayBuffer(event.target.files[0]);
+
+    // remove textarea
+    hideTextarea();
+
 };
 
+function hideTextarea(){
+    const textarea = document.querySelector('textarea');
+    textarea.style.display = 'none';
+}
+
 function toggleBigUpload(){
-    const bigUpload = document.querySelector('.upload_speech_big')
+    const bigUpload = document.querySelector('.upload_speech_big');
     if (bigUpload.style.display == 'none'){
         bigUpload.style.display = 'flex';
     } else {
