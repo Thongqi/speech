@@ -21,8 +21,22 @@ function uploadSpeech(event){
 
     let reader = new FileReader();
 
+    var options = {
+         convertImage: mammoth.images.imgElement((image) => {
+            return image.read('base64').then((imageBuffer) => {
+                return {
+                src: 'data:' + image.contentType + ';base64,' + imageBuffer,
+                style: 'max-width: 80vw',
+                };
+            });
+        }),
+    }
+
     reader.onload = function (event) {
-        mammoth.convertToHtml({ arrayBuffer: event.target.result })
+        mammoth.convertToHtml(
+            { arrayBuffer: event.target.result },
+            options
+        )
             .then(function (result) {
                 document.querySelector('.display_speech').innerHTML = result.value;
             })
