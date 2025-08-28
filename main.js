@@ -38,18 +38,22 @@ function uploadSpeech(event){
 function toggleBigUpload(){
     const bigUpload = document.querySelector('.upload_speech_big')
     if (bigUpload.style.display == 'none'){
-        bigUpload.style.display = 'block';
+        bigUpload.style.display = 'flex';
     } else {
         bigUpload.style.display = 'none';
     }
+
+    if (document.querySelector('.settings').style.display == 'block') toggleSettings()
 }
 
 function toggleSettings(){
-    const bigUpload = document.querySelector('.settings')
-    if (bigUpload.style.display == 'none'){
-        bigUpload.style.display = 'block';
+    const setting = document.querySelector('.settings')
+    if (setting.style.display == 'none'){
+        setting.style.display = 'block';
     } else {
-        bigUpload.style.display = 'none';
+        setting.style.display = 'none';
     }
+
+    if (document.querySelector('.upload_speech_big').style.display == 'flex') toggleBigUpload()
 }
 
