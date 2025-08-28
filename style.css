@@ -1,5 +1,7 @@
 body{
     font-family: Helvetica, sans-serif, Arial;
+    margin: 0;
+    padding: 0;
 }
 
 .display_speech{
@@ -22,12 +24,46 @@ body{
     color: whitesmoke;
 }
 
+.upload_speech_big .close_btn{
+    position: absolute;
+    top: 10px;
+    right:10px;
+}
+
 .upload_speech_small{
-    position: fixed;
-    top: 3vw;
-    right: 3vw;
     border-radius: 50%;
     width: 30px;
     height: 30px;
     background-color: rgba(0, 139, 139, 0.733);
 }
+
+.upload_speech_small .upload_icon{
+    margin: auto;
+}
+
+.setting_bar{
+    position: fixed;
+    top: 3vw;
+    right: 3vw;
+    padding:1vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.settings{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 80vw;
+    max-width: 300px;
+    height: 30vw;
+    max-height: 300px;
+    padding: 10vw;
+    background-color: rgba(255, 127, 80, 0.705);
+}
+

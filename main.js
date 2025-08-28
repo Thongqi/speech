@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
 function setLineHeight(lineHeight){
-    document.querySelector('.display_speech').style.lineHeight = lineHeight;
+    document.querySelector('.display_speech').style.lineHeight = toString(lineHeight);
 }
 
 function setFontSize(fontSize){
@@ -37,6 +37,15 @@ function uploadSpeech(event){
 
 function toggleBigUpload(){
     const bigUpload = document.querySelector('.upload_speech_big')
+    if (bigUpload.style.display == 'none'){
+        bigUpload.style.display = 'block';
+    } else {
+        bigUpload.style.display = 'none';
+    }
+}
+
+function toggleSettings(){
+    const bigUpload = document.querySelector('.settings')
     if (bigUpload.style.display == 'none'){
         bigUpload.style.display = 'block';
     } else {
