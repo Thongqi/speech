@@ -63,7 +63,7 @@ function editText(){
 
     const textarea = document.createElement('textarea');
     textarea.setAttribute('class', 'edittext')
-    textarea.innerHTML = texts.innerHTML
+    textarea.value = texts.innerHTML
     texts.innerHTML = ''
     texts.appendChild(textarea)
 
@@ -74,7 +74,7 @@ function saveText(){
     const texts = document.querySelector('.display_speech');
     const textarea = document.querySelector('.edittext')
 
-    texts.innerHTML = textarea.innerHTML
+    texts.innerHTML = textarea.value
     textarea.remove()
 
     toggleSaveEditIcon();

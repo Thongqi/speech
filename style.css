@@ -29,6 +29,9 @@ input, button, textarea, select {
 .display_speech{
     padding: 1rem;
     white-space: pre;
+    max-width: 80ch;
+    margin: auto;
+    text-wrap: auto;
 }
 
 .display_speech p {
@@ -39,9 +42,13 @@ input, button, textarea, select {
 
 .edit_button{
     position: absolute;
-    bottom: 20;
-    right: 20;
+    bottom: 3vw;
+    right: 3vw;
     margin: auto;
+    background: #a33f3f;
+    border-radius: 10px;
+    padding: 5px;
+    color: whitesmoke;
 }
 
 .edit_button #saveText{
