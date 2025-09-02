@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
 function setLineHeight(lineHeight){
-    document.querySelector('.display_speech').style.lineHeight = toString(lineHeight);
+    document.querySelector('.display_speech').style.lineHeight = lineHeight;
 }
 
 function setFontSize(fontSize){
@@ -54,7 +54,7 @@ function uploadSpeech(event){
 };
 
 function hideTextarea(){
-    const textarea = document.querySelector('textarea');
+    const textarea = document.querySelector('.textbox');
     textarea.style.display = 'none';
 }
 
