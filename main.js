@@ -7,6 +7,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 })
 
+function highlightString(){
+
+}
+
+function searchString(string){
+    
+}
 
 function setLineHeight(lineHeight){
     document.querySelector('.display_speech').style.lineHeight = lineHeight;

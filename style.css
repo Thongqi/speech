@@ -12,6 +12,10 @@ input, button, textarea, select {
   font: inherit;
 }
 
+textarea{
+    padding: 5px;
+}
+
 .close_btn{
     position: absolute;
     top: 10px;
@@ -34,10 +38,10 @@ input, button, textarea, select {
     text-wrap: auto;
 }
 
-.display_speech p {
-    max-width: 80ch;
-    padding-bottom: 1rem;
+.display_speech textarea {
+    width: 90%;
     margin: auto;
+    height: 95vh;
 }
 
 .edit_button{
