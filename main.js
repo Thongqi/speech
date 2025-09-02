@@ -33,7 +33,7 @@ function uploadSpeech(event){
     }
 
     reader.onload = function (event) {
-        mammoth.convertToHtml(
+        mammoth.extractRawText(
             { arrayBuffer: event.target.result },
             options
         )
@@ -58,7 +58,45 @@ function hideTextarea(){
     textarea.style.display = 'none';
 }
 
+function editText(){
+    const texts = document.querySelector('.display_speech');
+
+    const textarea = document.createElement('textarea');
+    textarea.setAttribute('class', 'edittext')
+    textarea.innerHTML = texts.innerHTML
+    texts.innerHTML = ''
+    texts.appendChild(textarea)
+
+    toggleSaveEditIcon();
+}
+
+function saveText(){
+    const texts = document.querySelector('.display_speech');
+    const textarea = document.querySelector('.edittext')
+
+    texts.innerHTML = textarea.innerHTML
+    textarea.remove()
+
+    toggleSaveEditIcon();
+}
+
+function toggleSaveEditIcon(){
+    const editButton = document.querySelector('#editText')
+    const saveButton = document.querySelector('#saveText')
+
+    if (editButton.style.display == 'none') {
+        saveButton.style.display = 'none';
+        editButton.style.display = 'block';
+    } else{
+        saveButton.style.display = 'block';
+        editButton.style.display = 'none';
+    }
+}
+
+
 function toggleBigUpload(){
+    if (document.querySelector('.settings').style.display == 'block') toggleSettings()
+
     const bigUpload = document.querySelector('.upload_speech_big');
     if (bigUpload.style.display == 'none'){
         bigUpload.style.display = 'flex';
@@ -66,10 +104,11 @@ function toggleBigUpload(){
         bigUpload.style.display = 'none';
     }
 
-    if (document.querySelector('.settings').style.display == 'block') toggleSettings()
 }
 
 function toggleSettings(){
+    if (document.querySelector('.upload_speech_big').style.display == 'flex') toggleBigUpload()
+
     const setting = document.querySelector('.settings')
     if (setting.style.display == 'none'){
         setting.style.display = 'block';
@@ -77,6 +116,5 @@ function toggleSettings(){
         setting.style.display = 'none';
     }
 
-    if (document.querySelector('.upload_speech_big').style.display == 'flex') toggleBigUpload()
 }
 
