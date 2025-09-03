@@ -164,13 +164,13 @@ textarea{
 
 mark {
     color: rgb(171 171 171);
-    background-color: rgb(181 181 181 / 45%) !important;
+    background-color: rgb(181 181 181 / 45%);
     font-size: small;
 }
 
 .toread{
     color: rgb(3, 16, 34);
-    background-color: whitesmoke;
-    font-size: small;
-    box-shadow: 2px 2px 0 gray;
+    background-color: #fffcf6;
+    font-size: large;
+    box-shadow: 2px 2px 2px #b9b7b7;
 }
