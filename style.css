@@ -162,8 +162,15 @@ textarea{
     left:45%;
 }
 
-.mark {
-    color: rgb(231, 231, 231);
-    background-color: rgba(185, 185, 185, 0.815)!important;
+mark {
+    color: rgb(171 171 171);
+    background-color: rgb(181 181 181 / 45%) !important;
     font-size: small;
+}
+
+.toread{
+    color: rgb(3, 16, 34);
+    background-color: whitesmoke;
+    font-size: small;
+    box-shadow: 2px 2px 0 gray;
 }

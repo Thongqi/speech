@@ -7,11 +7,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 })
 
-function searchAndHighlightString(string){
+function searchAndHighlightString(string, class){
     const speech = document.querySelector('.display_speech');
     var marked_speech = new Mark(speech);
     marked_speech.unmark();
-    marked_speech.mark(string, {"separateWordSearch": false,});
+    marked_speech.mark(string, {"separateWordSearch": false, "className": class});
+}
+
+function wordAfterHighlight(){
+    const string = document.querySelector('.read');
+    var nextString = string.nextSibling.nodeValue.split(' ').slice(0,4).join(' ');
+    searchAndHighlightString(nextString, "toread");
 }
 
 function setLineHeight(lineHeight){
