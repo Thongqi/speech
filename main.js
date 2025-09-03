@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 function searchAndHighlightString(string, class_name){
     const speech = document.querySelector('.display_speech');
     var marked_speech = new Mark(speech);
-    marked_speech.unmark(class_name);
+    marked_speech.unmark({"className":class_name,});
     marked_speech.mark(string, {"separateWordSearch": false, "className": class_name});
     wordAfterHighlight();
 }
