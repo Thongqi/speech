@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 function searchAndHighlightString(string){
     const speech = document.querySelector('.display_speech');
     var marked_speech = new Mark(speech);
+    marked_speech.unmark();
     marked_speech.mark(string);
+    console.log(string);
 }
 
 function setLineHeight(lineHeight){
