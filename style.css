@@ -157,7 +157,13 @@ textarea{
 }
 
 .textinput{
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     left:45%;
+}
+
+.mark {
+    color: rgb(231, 231, 231);
+    background-color: rgba(185, 185, 185, 0.815)!important;
+    font-size: small;
 }
