@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.10.0/mammoth.browser.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+    
     <script src="main.js"></script>
     <title>Document</title>
 </head>
@@ -79,7 +83,7 @@
     </div>
     <!-- temporary input for text -->
     <div>
-        <input type="text" name="textinput" id="textinput" oninput="searchString(this.value)">
+        <input type="text" name="textinput" id="textinput" oninput="searchAndHighlightString(this.value)">
     </div>
 
 </body>

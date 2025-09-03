@@ -7,12 +7,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 })
 
-function highlightString(){
-
-}
-
-function searchString(string){
-    
+function searchAndHighlightString(string){
+    const speech = document.querySelector('.display_speech');
+    var marked_speech = new Mark(speech);
+    marked_speech.mark(string);
 }
 
 function setLineHeight(lineHeight){
