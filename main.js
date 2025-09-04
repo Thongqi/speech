@@ -39,7 +39,7 @@ function checkFileExtension(event){
     const PDF_EXTENSION = /(\.pdf)$/i;
 
     const DOC_EXTENSION  = /(\.doc|\.docx)$/i;
-    if (file){
+    if (file.value){
         if (file.value.match(PDF_EXTENSION).length > 0) uploadDocSpeech(event)
         else if (file.value.exec(DOC_EXTENSION).length > 0) uploadPdfSpeech(event)
     }
