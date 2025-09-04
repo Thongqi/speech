@@ -2,7 +2,7 @@
   
 document.addEventListener("DOMContentLoaded", (event) => { 
     const speech = document.querySelector('#speech')
-    speech.addEventListener('change', checkFileExtension(event))
+    speech.addEventListener('change', checkFileExtension)
 
     const small_upload = document.querySelector('.upload_speech_small')
     small_upload.addEventListener('click', toggleBigUpload)
@@ -34,6 +34,7 @@ function setFontSize(fontSize){
 }
 
 function checkFileExtension(event){
+    event.preventDefault();
     const file = document.querySelector('#speech');
     
     const PDF_EXTENSION = /(\.pdf)$/i;
@@ -95,7 +96,6 @@ function uploadPdfSpeech(event){
 }
 
 function uploadDocSpeech(event){
-    event.preventDefault();
 
     let reader = new FileReader();
 
