@@ -12,16 +12,16 @@ function searchAndHighlightString(string, class_name){
     var marked_speech = new Mark(speech);
     marked_speech.unmark({"className":class_name,});
     marked_speech.mark(string, {"separateWordSearch": false, "className": class_name});
-    wordAfterHighlight();
 }
 
+function spokeString(string){
+    searchAndHighlightString(string, 'read')
 
-
-function wordAfterHighlight(){
-    const string = document.querySelector('.read');
-    var nextString = string.nextSibling.nodeValue.split(' ').slice(0,4).join(' ');
-    searchAndHighlightString(nextString, "toread");
+    const spokeStringElement = document.querySelector('.read');
+    var nextString = spokeStringElement.nextSibling.nodeValue.split(' ').slice(0,4).join(' ');
+    searchAndHighlightString(nextString, 'toread');
 }
+
 
 function setLineHeight(lineHeight){
     document.querySelector('.display_speech').style.lineHeight = lineHeight;
