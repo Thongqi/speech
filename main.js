@@ -1,6 +1,9 @@
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.149/pdf.min.mjs";
+  
 document.addEventListener("DOMContentLoaded", (event) => { 
     const speech = document.querySelector('#speech')
-    speech.addEventListener('change', uploadSpeech)
+    speech.addEventListener('change', checkFileExtension(event))
 
     const small_upload = document.querySelector('.upload_speech_small')
     small_upload.addEventListener('click', toggleBigUpload)
@@ -18,7 +21,7 @@ function spokeString(string){
     searchAndHighlightString(string, 'read')
 
     const spokeStringElement = document.querySelector('.read');
-    var nextString = spokeStringElement.nextSibling.nodeValue.split(' ').slice(0,4).join(' ');
+    var nextString = spokeStringElement.nextSibling.nodeValue.split(' ').slice(1,4).join(' ');
     searchAndHighlightString(nextString, 'toread');
 }
 
@@ -31,7 +34,64 @@ function setFontSize(fontSize){
     document.querySelector('.display_speech').style.fontSize = `${fontSize}px`;
 }
 
-function uploadSpeech(event){
+function checkFileExtension(event){
+    const file = document.querySelector('#speech');
+    
+    const PDF_EXTENSION = /(\.pdf)$/i;
+
+    const DOC_EXTENSION  = /(\.doc|\.docx)$/i;
+
+    if (PDF_EXTENSION.exec(file.value).length > 0) uploadDocSpeech(event)
+        else if (DOC_EXTENSION.exec(file.value).length > 0) uploadPdfSpeech(event)
+}
+
+function extractPdfText(pdf){
+
+  return pdf.promise.then(function (pdf) {
+    var totalPageCount = pdf.numPages;
+    var countPromises = [];
+    for (
+      var currentPage = 1;
+      currentPage <= totalPageCount;
+      currentPage++
+    ) {
+      var page = pdf.getPage(currentPage);
+      countPromises.push(
+        page.then(function (page) {
+          var textContent = page.getTextContent();
+          return textContent.then(function (text) {
+            return text.items
+              .map(function (s) {
+                return s.str;
+              })
+              .join('');
+          });
+        }),
+      );
+    }
+
+    return Promise.all(countPromises).then(function (texts) {
+      return texts.join('');
+    });
+  });
+}
+
+function uploadPdfSpeech(event){
+    var pdf = pdfjsLib.getDocument(event.target.result);
+
+    extractPdfText(pdf).then(
+        function (result) {
+          console.log('parse ' + result);
+          document.querySelector('.display_speech').innerHTML = result.value;
+        },
+        function (reason) {
+          console.error(reason);
+        },
+    );
+
+}
+
+function uploadDocSpeech(event){
     event.preventDefault();
 
     let reader = new FileReader();

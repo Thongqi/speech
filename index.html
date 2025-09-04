@@ -8,6 +8,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.10.0/mammoth.browser.min.js"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.149/pdf.min.mjs"></script>
     
     <script src="main.js"></script>
     <title>Document</title>
@@ -29,8 +31,8 @@
     
     <div class="upload_speech_big">
         <p>Upload your speech</p>
-        <form action="" method="post" enctype="multipart/form-data" accept=".pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
-            <input type="file" name="speech" id="speech" />
+        <form action="" method="post" enctype="multipart/form-data" >
+            <input type="file" name="speech" id="speech" accept=".pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
             <!-- <button type="submit">Upload</button> -->
         </form>
         <!-- TODO -->
