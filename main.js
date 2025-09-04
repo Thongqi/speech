@@ -41,8 +41,8 @@ function checkFileExtension(event){
 
     const DOC_EXTENSION  = /(\.doc|\.docx)$/i;
     if (file.value != ''){
-        if (file.value.match(PDF_EXTENSION).length > 0) uploadDocSpeech(event)
-        else if (file.value.exec(DOC_EXTENSION).length > 0) uploadPdfSpeech(event)
+        if (file.value.match(PDF_EXTENSION)) uploadPdfSpeech(event)
+        else if (file.value.exec(DOC_EXTENSION)) uploadDocSpeech(event)
     }
     
 }
@@ -81,17 +81,25 @@ function extractPdfText(pdf){
 function uploadPdfSpeech(event){
     pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.149/pdf.min.mjs";
 
-    var pdf = pdfjsLib.getDocument(event.target.result);
+    let reader = new FileReader();
+    
+    reader.onload = function (){
+        var typedarray = new Uint8Array(this.result);
 
-    extractPdfText(pdf).then(
-        function (result) {
-          console.log('parse ' + result);
-          document.querySelector('.display_speech').innerHTML = result.value;
-        },
-        function (reason) {
-          console.error(reason);
-        },
-    );
+        var pdf = pdfjsLib.getDocument(typedarray);
+
+        extractPdfText(pdf).then(
+            function (result) {
+                console.log('parse ' + result);
+                document.querySelector('.display_speech').innerHTML = result.value;
+            },
+            function (reason) {
+                console.error(reason);
+            },
+        );
+    }
+
+    reader.readAsArrayBuffer(event.target.files[0])
 
 }
 
