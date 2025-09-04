@@ -1,5 +1,4 @@
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.149/pdf.min.mjs";
+
   
 document.addEventListener("DOMContentLoaded", (event) => { 
     const speech = document.querySelector('#speech')
@@ -77,6 +76,8 @@ function extractPdfText(pdf){
 }
 
 function uploadPdfSpeech(event){
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.149/pdf.min.mjs";
+
     var pdf = pdfjsLib.getDocument(event.target.result);
 
     extractPdfText(pdf).then(
