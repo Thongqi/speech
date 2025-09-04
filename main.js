@@ -40,8 +40,8 @@ function checkFileExtension(event){
 
     const DOC_EXTENSION  = /(\.doc|\.docx)$/i;
 
-    if (PDF_EXTENSION.exec(file.value).length > 0) uploadDocSpeech(event)
-        else if (DOC_EXTENSION.exec(file.value).length > 0) uploadPdfSpeech(event)
+    if (file.value.match(PDF_EXTENSION).length > 0) uploadDocSpeech(event)
+        else if (file.value.exec(DOC_EXTENSION).length > 0) uploadPdfSpeech(event)
 }
 
 function extractPdfText(pdf){
