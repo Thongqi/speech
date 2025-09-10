@@ -61,12 +61,33 @@ function extractPdfText(pdf){
       countPromises.push(
         page.then(function (page) {
           var textContent = page.getTextContent();
+
           return textContent.then(function (text) {
-            return text.items
-              .map(function (s) {
-                return s.str;
-              })
-              .join('');
+            var finalString = "";
+            var line = 0;
+
+            // Concatenate the string of the item to the final string
+            for (var i = 0; i < textItems.length; i++) {
+                if (line != textItems[i].transform[5]) {
+                    if (line != 0) {
+                        finalString +='\r\n';
+                    }
+
+                    line = textItems[i].transform[5]
+                }                     
+                var item = textItems[i];
+
+                finalString += item.str;
+            }
+
+            var node = document.getElementById('.display_speech');
+            node.value = finalString;
+            return node
+            // return text.items
+            //   .map(function (s) {
+            //     return s.str;
+            //   })
+            //   .join('');
           });
         }),
       );
