@@ -79,27 +79,44 @@ function extractPdfText(pdf){
 }
 
 function uploadPdfSpeech(event){
-    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.149/pdf.min.mjs";
+    var { pdfjsLib } = globalThis;
+
+  // The workerSrc property shall be specified.
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.mjs';
+    // pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.149/pdf.min.mjs";
 
     let reader = new FileReader();
     
-    reader.onload = function (){
-        var typedarray = new Uint8Array(this.result);
 
-        var pdf = pdfjsLib.getDocument(typedarray);
+    const fileURL = URL.createObjectURL(event.target.files[0])
 
-        extractPdfText(pdf).then(
-            function (result) {
-                console.log('parse ' + result);
-                document.querySelector('.display_speech').innerHTML = result.value;
-            },
-            function (reason) {
-                console.error(reason);
-            },
-        );
-    }
+    var pdf = pdfjsLib.getDocument(fileURL);
+    extractPdfText(pdf).then(
+        function (result) {
+            console.log('parse ' + result);
+            document.querySelector('.display_speech').innerHTML = result.value;
+        },
+        function (reason) {
+            console.error(reason);
+        },
+    );
+    // reader.onload = function (){
+    //     var typedarray = new Uint8Array(this.result);
 
-    reader.readAsDataURL(event.target.files[0])
+    //     var pdf = pdfjsLib.getDocument(typedarray);
+
+    //     extractPdfText(pdf).then(
+    //         function (result) {
+    //             console.log('parse ' + result);
+    //             document.querySelector('.display_speech').innerHTML = result.value;
+    //         },
+    //         function (reason) {
+    //             console.error(reason);
+    //         },
+    //     );
+    // }
+
+    // reader.readAsDataURL(fileURL)
 
 }
 
