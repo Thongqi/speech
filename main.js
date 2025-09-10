@@ -62,10 +62,11 @@ function extractPdfText(pdf){
         page.then(function (page) {
           var textContent = page.getTextContent();
 
+        //   to have line breaks
           return textContent.then(function (text) {
             var finalString = "";
             var line = 0;
-
+            var textItems = text.items;
             // Concatenate the string of the item to the final string
             for (var i = 0; i < textItems.length; i++) {
                 if (line != textItems[i].transform[5]) {
@@ -80,14 +81,8 @@ function extractPdfText(pdf){
                 finalString += item.str;
             }
 
-            var node = document.getElementById('.display_speech');
-            node.value = finalString;
-            return node
-            // return text.items
-            //   .map(function (s) {
-            //     return s.str;
-            //   })
-            //   .join('');
+            return finalString;
+            
           });
         }),
       );
@@ -115,7 +110,7 @@ function uploadPdfSpeech(event){
     extractPdfText(pdf).then(
         function (result) {
             console.log('parse ' + result);
-            document.querySelector('.display_speech').innerHTML = result.value;
+            document.querySelector('.display_speech').innerHTML = result;
         },
         function (reason) {
             console.error(reason);
