@@ -42,7 +42,7 @@ function checkFileExtension(event){
     const DOC_EXTENSION  = /(\.doc|\.docx)$/i;
     if (file.value != ''){
         if (file.value.match(PDF_EXTENSION)) uploadPdfSpeech(event)
-        else if (file.value.exec(DOC_EXTENSION)) uploadDocSpeech(event)
+        else if (file.value.match(DOC_EXTENSION)) uploadDocSpeech(event)
     }
     
 }
@@ -99,7 +99,7 @@ function uploadPdfSpeech(event){
         );
     }
 
-    reader.readAsArrayBuffer(event.target.files[0])
+    reader.readAsDataURL(event.target.files[0])
 
 }
 
