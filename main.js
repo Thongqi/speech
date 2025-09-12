@@ -20,7 +20,20 @@ function spokeString(string){
     searchAndHighlightString(string, 'read')
 
     const spokeStringElement = document.querySelector('.read');
-    var nextString = spokeStringElement.nextSibling.nodeValue.split(' ').slice(1,4).join(' ');
+    var remainingSpace = document.querySelector('.read').nextSibling.nodeValue.split(' ').length;
+    // if next string length not less than 3, 
+    var nextString;
+    if (document.querySelector('.toread')){
+        if(remainingSpace < 2){
+            var addOn = document.querySelector('.read').nextSibling.nextSibling.nextSibling.nodeValue.split(' ').slice(0,2).join(' ');
+            nextString = document.querySelector('.read').nextSibling.nextSibling.innerHTML.split(' ').slice(1).join(' ') + addOn;
+        } else {
+            nextString = spokeStringElement.nextSibling.nextSibling.innerHTML.split(' ').slice(1,4).join(' ');
+        }
+    } else{
+        nextString = spokeStringElement.nextSibling.nodeValue.split(' ').slice(1,4).join(' ')
+    }
+    
     searchAndHighlightString(nextString, 'toread');
 }
 
